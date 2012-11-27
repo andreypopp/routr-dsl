@@ -1,0 +1,20 @@
+Docstring based DSL for routr.
+
+""" My micro web app.
+
+It handle the following routes
+
+  GET /hello?message=str&[format=str]
+  GET /messages?[limit=int]&[offset=int]
+
+"""
+
+def get_hello(message=None, format=None):
+    return Response(...)
+
+def get_messages(id, limit=10, offset=0):
+    return Response(...)
+
+if __name__ == '__main__':
+    from routrdsl import parse
+    routes = parse(__doc__, globals())
